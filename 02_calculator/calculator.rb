@@ -15,3 +15,20 @@ def sum(total)
   end
   return result
 end
+
+
+def multiply(numbers)
+  result = 1
+  numbers.each do |number|
+   result =  result * number
+  end
+  return result
+
+end
+
+
+
+
+def factorial(n)
+  n == 0? 1 : (1..n).inject(:*)
+end
