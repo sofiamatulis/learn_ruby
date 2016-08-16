@@ -30,8 +30,16 @@ end
 
 
 def titleize(words)
-  words.each do |word|
-  word.capitalize
-  if word == "war" || word == "and" || word == 
+  array = words.split(" ")
+  array.each do |word|
+  if word == "war" || word == "and" || word == "peace" || word == "over"
+     word
+  elsif words.split.first
+    word.capitalize!
+  else
+    word.capitalize!
+    array = words.join(" ")
+
+end
 end
 end
