@@ -8,5 +8,21 @@ end
 
 
 def repeat(string, num = 2)
- (string * num).split(" ")
+
+  array =[]
+  num.times do
+    array << string
+  end
+  final = array.join(" ")
+  return final
+
+end
+
+
+
+
+
+
+def start_of_word(word, num)
+  word[0,num]
 end
