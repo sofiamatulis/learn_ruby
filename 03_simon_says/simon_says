@@ -6,6 +6,10 @@ def bye
   "bye"
 end
 
-def shout_hello
+def shout
   "hello".upcase
+end
+
+def repeat
+  2.times "hello"
 end
