@@ -27,8 +27,13 @@ def multiply(numbers)
 end
 
 
-
-
 def factorial(n)
-  n == 0? 1 : (1..n).inject(:*)
+    if n == 0
+        0
+    elsif n == 1
+      1
+    else  n * factorial(n-1)
+    end
 end
+
+#function factorial multiplies itself by the previous one all the way down! 
