@@ -36,14 +36,12 @@ def titleize(words)
   array.each do |word|
   if  word == "and" ||  word == "over" || word == "the"
      word
-
   else
     word.capitalize!
   end
-  end
+end
+array[0].capitalize!
 
-  words.split.first
-  word.capitalize!
 
 array_two = array.join(" ")
 
