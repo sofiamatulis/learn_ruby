@@ -31,15 +31,24 @@ end
 
 def titleize(words)
   array = words.split(" ")
+
+  #here the loop starts
   array.each do |word|
-  if word == "war" || word == "and" || word == "peace" || word == "over"
+  if  word == "and" ||  word == "over" || word == "the"
      word
-  elsif words.split.first
-    word.capitalize!
+
   else
     word.capitalize!
-    array = words.join(" ")
+  end
+  end
 
-end
-end
+  words.split.first
+  word.capitalize!
+
+array_two = array.join(" ")
+
+#join and split only work on arrays,
+
+return array_two
+
 end
