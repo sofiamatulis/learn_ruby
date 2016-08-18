@@ -1,64 +1,36 @@
-def translate(words)
-new_string =[]
+def translate(sentence)
 
-word = words.split(" ")
+  new_string =[]
 
-def is_it_a_vowel(letter)
-  if letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u'
-    then true
-  else
-    false
+  words = sentence.split(" ")
+
+  words.each do |word|
+    new_string << translate_word(word)
   end
 
-
-  if is_it_a_vowel(word[0]) == false
-
-    if word[0] == 'q' && word[1] == 'u'
-    then
-      first_letter = word[0]
-      second_letter = word[1]
-      #now the space for the first/second word is empty!
-      word[0] = ""
-      word[1] = ""
-      translated_word =  word + first_letter + second_letter + "ay"
-      new_string << translated_word
+  new_string= new_string.join("")
 
 
-  #code
-   elsif is_it_a_vowel(word[1]) == false
-  #then
-  #code de duas consoantes ou tres- nao sabemos ainda! !
-    if is_it_a_vowel(word[2]) == false
+ end
 
-    #codigo de tres!!
-    first_letter = word[0]
-    second_letter = word[1]
-    third_letter = word[2]
-    #now the space for the first/second word is empty!
-    word[0] = ""
-    word[1] = ""
-    word[2] = ""
-    translated_word = word + first_letter + second_letter + third_letter + "ay"
-    new_string << translated_word
+ def is_it_a_vowel(letter)
+   letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u'
+ end
+
+def consonant(word)
+  if word[0] == 'q' && word[1] == 'u'
+    two_consonants
+  elsif (word[1]) == false && (word[2] == false)
+    three_consonants
+  elsif (word[0] == false && word[1]) == false && (word[2] =! false)
+    two_consonants
+  elsif (word[0] == false && word[1] =! false)
+    one_consonant
   end
-     else
-    #codigo de dois!
-    first_letter = word[0]
-    second_letter = word[1]
-    #now the space for the first/second word is empty!
-    word[0] = ""
-    word[1] = ""
-    translated_word = word + first_letter + second_letter + "ay"
-    new_string << translated_word
-  end
+end
 
-
-
-    else
-
-  # code de um !
-  #stored the first letter in the first_letter variable
- first_letter = word[0]
+def one_consonant
+  first_letter = word[0]
  #now the space for the first word is empty!
  word[0] = ""
  translated_word = word + first_letter + "ay"
@@ -66,15 +38,44 @@ def is_it_a_vowel(letter)
 
 end
 
-
-else # is_it_a_vowel(word[0]) == true
-    translated_word = word + "ay"
-    # new_string << translated_word
+def
+  first_letter = word[0]
+    second_letter = word[1]
+    #now the space for the first/second word is empty!
+    word[0] = ""
+    word[1] = ""
+    translated_word =  word + first_letter + second_letter + "ay"
     new_string << translated_word
+end
+
+def three_consonants
+  first_letter = word[0]
+      second_letter = word[1]
+      third_letter = word[2]
+      #now the space for the first/second word is empty!
+      word[0] = ""
+      word[1] = ""
+      word[2] = ""
+      translated_word = word + first_letter + second_letter + third_letter + "ay"
+      new_string << translated_word
+end
+
+
+def vowel(word)
+  # is_it_a_vowel(word[0]) == true
+  #translated_word = word + "ay"
+  # new_string << translated_word
+  word + "ay"
 
 end
 
 
- new_string= new_string.join("")
+ def translate_word(word)
+   if is_it_a_vowel(word[0]) == false
+     consonant(word)
+   else
+     vowel(word)
 
+
+   end
  end
