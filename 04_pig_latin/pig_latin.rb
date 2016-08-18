@@ -1,6 +1,9 @@
+
+
 def translate(sentence)
 
   new_string =[]
+
 
   words = sentence.split(" ")
 
@@ -8,7 +11,7 @@ def translate(sentence)
     new_string << translate_word(word)
   end
 
-  new_string= new_string.join("")
+  new_string= new_string.join(" ")
 
  end
 
@@ -18,44 +21,45 @@ def translate(sentence)
 
 def consonant(word)
   if word[0] == 'q' && word[1] == 'u'
-    two_consonants
-  elsif is_it_a_vowel(word[1]) == false && is_it_a_vowel(word[2]) == false
-    three_consonants
+    two_consonants(word)
+  elsif is_it_a_vowel(word[2]) == false && is_it_a_vowel(word[1])== false && is_it_a_vowel(word[0]) == false
+    three_consonants(word)
   elsif is_it_a_vowel(word[0]) == false && is_it_a_vowel(word[1]) == false && is_it_a_vowel(word[2]) != false
-    two_consonants
+    two_consonants(word)
   elsif is_it_a_vowel(word[0]) == false && is_it_a_vowel(word[1]) != false
-    one_consonant
+    one_consonant(word)
   end
 end
 
-def one_consonant
+def one_consonant(word)
   first_letter = word[0]
  #now the space for the first word is empty!
  word[0] = ""
  translated_word = word + first_letter + "ay"
- new_string << translated_word
+
 end
 
-def two_consonants
-  first_letter = word[0]
-    second_letter = word[1]
+def two_consonants(word)
+   first_two_letters = word[0..1]
+
     #now the space for the first/second word is empty!
-    word[0] = ""
-    word[1] = ""
-    translated_word =  word + first_letter + second_letter + "ay"
-    new_string << translated_word
+    word[0..1] = ""
+
+      translated_word =  word + first_two_letters + "ay"
+
+
+
+
 end
 
-def three_consonants
-  first_letter = word[0]
-      second_letter = word[1]
-      third_letter = word[2]
+def three_consonants(word)
+      first_three_letters = word[0..2]
+
       #now the space for the first/second word is empty!
-      word[0] = ""
-      word[1] = ""
-      word[2] = ""
-      translated_word = word + first_letter + second_letter + third_letter + "ay"
-      new_string << translated_word
+      word[0..2] = ""
+
+      translated_word = word + first_three_letters+ "ay"
+
 end
 
 
