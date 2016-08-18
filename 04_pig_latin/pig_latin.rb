@@ -10,7 +10,6 @@ def translate(sentence)
 
   new_string= new_string.join("")
 
-
  end
 
  def is_it_a_vowel(letter)
@@ -20,11 +19,11 @@ def translate(sentence)
 def consonant(word)
   if word[0] == 'q' && word[1] == 'u'
     two_consonants
-  elsif (word[1]) == false && (word[2] == false)
+  elsif is_it_a_vowel(word[1]) == false && is_it_a_vowel(word[2]) == false
     three_consonants
-  elsif (word[0] == false && word[1]) == false && (word[2] =! false)
+  elsif is_it_a_vowel(word[0]) == false && is_it_a_vowel(word[1]) == false && is_it_a_vowel(word[2]) != false
     two_consonants
-  elsif (word[0] == false && word[1] =! false)
+  elsif is_it_a_vowel(word[0]) == false && is_it_a_vowel(word[1]) != false
     one_consonant
   end
 end
@@ -35,10 +34,9 @@ def one_consonant
  word[0] = ""
  translated_word = word + first_letter + "ay"
  new_string << translated_word
-
 end
 
-def
+def two_consonants
   first_letter = word[0]
     second_letter = word[1]
     #now the space for the first/second word is empty!
@@ -75,7 +73,6 @@ end
      consonant(word)
    else
      vowel(word)
-
 
    end
  end
